@@ -1,19 +1,28 @@
 import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { format } from "date-fns";
+import { nl } from "date-fns/locale";
+import { Calendar as CalendarIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Vul je naam in").max(100),
   email: z.string().trim().email("Ongeldig e-mailadres").max(255),
   phone: z.string().trim().max(30).optional().or(z.literal("")),
+  company: z.string().trim().max(100).optional().or(z.literal("")),
   date: z.string().trim().max(50).optional().or(z.literal("")),
   guests: z.string().trim().max(20).optional().or(z.literal("")),
   type: z.string().trim().max(50).optional().or(z.literal("")),
+  service: z.string().trim().max(50).optional().or(z.literal("")),
   message: z.string().trim().min(10, "Vertel kort over je event").max(1000),
 });
 
 export function ContactForm() {
   const [loading, setLoading] = useState(false);
+  const [date, setDate] = useState<Date | undefined>(undefined);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -29,6 +38,7 @@ export function ContactForm() {
     setLoading(false);
     toast.success("Bedankt! We nemen binnen 24 uur contact met je op.");
     (e.target as HTMLFormElement).reset();
+    setDate(undefined);
   }
 
   const inputCls =
@@ -37,24 +47,57 @@ export function ContactForm() {
   return (
     <form onSubmit={onSubmit} className="grid gap-5 sm:grid-cols-2">
       <input name="name" placeholder="Naam" className={inputCls} required />
-      <input name="email" type="email" placeholder="E-mail" className={inputCls} required />
+      <input name="company" placeholder="Bedrijfsnaam (optioneel)" className={inputCls} />
       <input name="phone" placeholder="Telefoon" className={inputCls} />
-      <input name="date" placeholder="Eventdatum" className={inputCls} />
+      <input name="email" type="email" placeholder="E-mail" className={inputCls} required />
+      
+      <div className="relative">
+        <input type="hidden" name="date" value={date ? format(date, "yyyy-MM-dd") : ""} />
+        <Popover>
+          <PopoverTrigger asChild>
+            <button
+              type="button"
+              className={cn(
+                inputCls,
+                "flex items-center justify-between text-left",
+                !date && "text-espresso/40"
+              )}
+            >
+              {date ? format(date, "PPP", { locale: nl }) : "Eventdatum"}
+              <CalendarIcon className="h-4 w-4 opacity-50" />
+            </button>
+          </PopoverTrigger>
+          <PopoverContent className="w-auto p-0 border-none shadow-elegant" align="start">
+            <Calendar
+              mode="single"
+              selected={date}
+              onSelect={setDate}
+              initialFocus
+              locale={nl}
+              className="bg-cream border border-border rounded-2xl"
+            />
+          </PopoverContent>
+        </Popover>
+      </div>
+
       <input name="guests" placeholder="Aantal gasten" className={inputCls} />
       <select name="type" defaultValue="" className={inputCls}>
         <option value="">Type event</option>
-        <option>Cocktail workshop privé</option>
-        <option>Cocktail workshop bedrijf</option>
-        <option>Vrijgezellenfeest workshop</option>
-        <option>Cocktail catering bruiloft</option>
-        <option>Cocktail catering tuinfeest</option>
-        <option>Cocktail catering bedrijfsfeest</option>
-        <option>Mocktail catering</option>
-        <option>Gin-Tonic bar</option>
-        <option>Champagne- of Prosecco-ontvangst</option>
-        <option>Speciaalbier bar</option>
-        <option>Wijnbar</option>
+        <option>Bruiloft</option>
+        <option>Bedrijfsevent</option>
+        <option>Personeelsborrel</option>
+        <option>Tuinfeest</option>
+        <option>Verjaardag</option>
+        <option>Prive feest</option>
         <option>Anders...</option>
+      </select>
+      <select name="service" defaultValue="" className={inputCls}>
+        <option value="">Gewenste dienst</option>
+        <option>Cocktail catering</option>
+        <option>Cocktail workshops</option>
+        <option>Wijnbar</option>
+        <option>Speciaalbier bar</option>
+        <option>Gin&Tonic bar</option>
       </select>
       <textarea
         name="message"

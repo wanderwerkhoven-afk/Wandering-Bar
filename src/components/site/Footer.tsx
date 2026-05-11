@@ -40,7 +40,10 @@ export function Footer() {
           <ul className="space-y-3 text-sm">
             <li><a href="#events" className="hover:text-copper">Bruiloften</a></li>
             <li><a href="#events" className="hover:text-copper">Bedrijfsevents</a></li>
-            <li><a href="#events" className="hover:text-copper">Private dining</a></li>
+            <li><a href="#events" className="hover:text-copper">Personeelsborrels</a></li>
+            <li><a href="#events" className="hover:text-copper">Tuinfeesten</a></li>
+            <li><a href="#events" className="hover:text-copper">Verjaardagen</a></li>
+            <li><a href="#events" className="hover:text-copper">Workshops</a></li>
           </ul>
         </div>
 
