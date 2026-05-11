@@ -26,13 +26,18 @@ function ComingSoon() {
           <span className="italic text-champagne">Bar</span>
         </h1>
         
-        <p className="text-xl md:text-2xl text-cream/90 mb-4 font-medium">
-          Wandering Bar wordt momenteel opgebouwd.
-        </p>
+        <h2 className="text-2xl md:text-3xl text-champagne mb-6 font-display italic">
+          Achter de schermen zijn we druk aan het shaken.
+        </h2>
         
-        <p className="text-lg text-cream/70 leading-relaxed mb-10">
-          Wat leuk dat je ons al zoekt! We <i>shaken</i> de website nog even flink door elkaar om de perfecte mix voor je klaar te zetten. 🍸
-        </p>
+        <div className="space-y-4 text-lg md:text-xl text-cream/80 leading-relaxed mb-10 max-w-xl">
+          <p>
+            Terwijl de cocktails worden getest, de glazen gepolijst en de laatste details worden gemixt, werken wij hard aan een nieuwe online beleving vol sfeer, cocktails en hospitality.
+          </p>
+          <p>
+            Binnenkort vind je hier alles over onze cocktail catering, workshops, wijnbars en speciaalbierbars op locatie.
+          </p>
+        </div>
 
         <a
           href="mailto:info@wanderingbar.nl"
