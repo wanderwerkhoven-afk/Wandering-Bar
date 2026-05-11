@@ -52,12 +52,12 @@ export function Header() {
               </span>
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-9">
+            <nav className="hidden lg:flex items-center gap-7">
               {nav.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className={`text-base font-medium tracking-tight transition-colors ${
+                  className={`text-lg font-medium tracking-tight transition-colors ${
                     scrolled ? "text-espresso/90 hover:text-copper" : "text-cream hover:text-champagne"
                   }`}
                 >
@@ -91,7 +91,7 @@ export function Header() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="text-espresso text-lg font-medium py-1"
+                    className="text-espresso text-xl font-medium py-2"
                   >
                     {item.label}
                   </a>
