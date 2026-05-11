@@ -57,8 +57,8 @@ export function Header() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className={`text-sm tracking-wide transition-colors ${
-                    scrolled ? "text-espresso/80 hover:text-copper" : "text-cream/90 hover:text-champagne"
+                  className={`text-base font-medium tracking-tight transition-colors ${
+                    scrolled ? "text-espresso/90 hover:text-copper" : "text-cream hover:text-champagne"
                   }`}
                 >
                   {item.label}
@@ -91,7 +91,7 @@ export function Header() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="text-espresso text-base"
+                    className="text-espresso text-lg font-medium py-1"
                   >
                     {item.label}
                   </a>
