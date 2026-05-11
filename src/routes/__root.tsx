@@ -72,7 +72,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=5" },
       { title: "Wandering Bar — Cocktailbeleving op locatie" },
       { name: "description", content: "Luxe mobiele cocktailbars, cocktail catering, workshops en speciale wijn- & bierbars voor bruiloften en bedrijfsevents." },
       { property: "og:title", content: "Wandering Bar — Cocktailbeleving op locatie" },
@@ -95,7 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="nl">
       <head>
         <HeadContent />
       </head>

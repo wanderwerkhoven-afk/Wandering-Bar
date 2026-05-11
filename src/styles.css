@@ -95,6 +95,9 @@
   }
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
   body {
     background-color: var(--color-background);
@@ -102,6 +105,8 @@
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
@@ -120,9 +125,10 @@
   .shadow-glow { box-shadow: var(--shadow-glow); }
 
   .glass {
-    background-color: oklch(0.97 0.015 80 / 0.7);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background-color: rgba(253, 250, 243, 0.8);
+    background-color: oklch(0.97 0.015 80 / 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
   }
   .glass-dark {
     background-color: oklch(0.22 0.04 40 / 0.55);
