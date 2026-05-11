@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Phone, Mail, Menu, X } from "lucide-react";
+import logo from "../../assets/logo-white.svg";
 
 const nav = [
   { label: "Cocktailbars", href: "#bars" },
@@ -31,7 +32,17 @@ export function Header() {
           }`}
         >
           <div className="mx-auto max-w-7xl px-6 h-20 flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-2 group">
+            <Link to="/" className="flex items-center gap-3 group">
+              <img 
+                src={logo} 
+                alt="Wandering Bar Logo" 
+                className={`h-10 w-auto transition-all duration-500 ${
+                  scrolled ? "invert brightness-0 opacity-90" : "brightness-0 invert-0 grayscale-0"
+                }`}
+                style={{ 
+                  filter: scrolled ? 'invert(1) brightness(0.2)' : 'none' 
+                }}
+              />
               <span
                 className={`font-display text-2xl tracking-tight ${
                   scrolled ? "text-espresso" : "text-cream"
