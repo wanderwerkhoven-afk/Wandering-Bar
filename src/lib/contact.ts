@@ -330,12 +330,12 @@ Verstuurd op: ${new Date().toLocaleString("nl-NL", { timeZone: "Europe/Amsterdam
     <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #F7F4F0; padding: 40px 20px; color: #1C1510;">
       <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #EADBC8;">
         <div style="background-color: #1C1510; padding: 30px; text-align: center;">
-          <a href="https://wanderingbar.nl" target="_blank" style="text-decoration: none; border: 0;">
+          <a href="https://wanderingbar.nl" target="_blank" style="text-decoration:none;">
             <img
-              src="https://wandering-bar.wanderwerkhoven.workers.dev/assets/images/wandering-bar-logo.png"
+              src="https://wanderingbar.nl/assets/email/wandering-bar-logo.png"
               alt="Wandering Bar"
               width="200"
-              style="display: block; width: 200px; max-width: 100%; height: auto; margin: 0 auto; border: 0;"
+              style="display:block; width:200px; max-width:100%; height:auto; margin:0 auto; border:0; outline:none; text-decoration:none;"
             />
           </a>
         </div>
