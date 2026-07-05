@@ -186,6 +186,74 @@ export async function handleContactRequest(
   const escapedLocation = escapeHtml(location);
   const escapedMessage = escapeHtml(message).replace(/\n/g, "<br />");
 
+  // Construct dynamic request details for the visitor email
+  let visitorDetailsHtml = "";
+  const hasContactInfo = name || email || phone || company;
+  if (hasContactInfo) {
+    visitorDetailsHtml += `
+      <div style="margin-bottom: 25px;">
+        <h4 style="margin: 0 0 10px 0; color: #8C6239; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #EADBC8; padding-bottom: 5px; font-weight: bold;">Contactgegevens</h4>
+        <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+          ${name ? `<tr><td style="padding: 5px 0; font-weight: bold; width: 35%; color: #555;">Naam:</td><td style="padding: 5px 0; color: #1C1510;">${escapedName}</td></tr>` : ""}
+          ${company ? `<tr><td style="padding: 5px 0; font-weight: bold; color: #555;">Bedrijf:</td><td style="padding: 5px 0; color: #1C1510;">${escapedCompany}</td></tr>` : ""}
+          ${email ? `<tr><td style="padding: 5px 0; font-weight: bold; color: #555;">E-mail:</td><td style="padding: 5px 0; color: #1C1510;"><a href="mailto:${escapedEmail}" style="color: #8C6239; text-decoration: none;">${escapedEmail}</a></td></tr>` : ""}
+          ${phone ? `<tr><td style="padding: 5px 0; font-weight: bold; color: #555;">Telefoon:</td><td style="padding: 5px 0; color: #1C1510;">${escapedPhone}</td></tr>` : ""}
+        </table>
+      </div>
+    `;
+  }
+
+  const hasEventInfo = eventDate || location || guests || type || service;
+  if (hasEventInfo) {
+    visitorDetailsHtml += `
+      <div style="margin-bottom: 25px;">
+        <h4 style="margin: 0 0 10px 0; color: #8C6239; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #EADBC8; padding-bottom: 5px; font-weight: bold;">Eventdetails</h4>
+        <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+          ${eventDate ? `<tr><td style="padding: 5px 0; font-weight: bold; width: 35%; color: #555;">Gewenste datum:</td><td style="padding: 5px 0; color: #1C1510;">${escapedEventDate}</td></tr>` : ""}
+          ${location ? `<tr><td style="padding: 5px 0; font-weight: bold; color: #555;">Locatie:</td><td style="padding: 5px 0; color: #1C1510;">${escapedLocation}</td></tr>` : ""}
+          ${guests ? `<tr><td style="padding: 5px 0; font-weight: bold; color: #555;">Aantal gasten:</td><td style="padding: 5px 0; color: #1C1510;">${escapedGuests}</td></tr>` : ""}
+          ${type ? `<tr><td style="padding: 5px 0; font-weight: bold; color: #555;">Type gelegenheid:</td><td style="padding: 5px 0; color: #1C1510;">${escapedType}</td></tr>` : ""}
+          ${service ? `<tr><td style="padding: 5px 0; font-weight: bold; color: #555;">Gewenste service:</td><td style="padding: 5px 0; color: #1C1510;">${escapedService}</td></tr>` : ""}
+        </table>
+      </div>
+    `;
+  }
+
+  if (message) {
+    visitorDetailsHtml += `
+      <div>
+        <h4 style="margin: 0 0 10px 0; color: #8C6239; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: bold;">Jouw bericht</h4>
+        <div style="padding: 15px; background-color: #ffffff; border-radius: 8px; border: 1px solid #EADBC8; font-size: 14px; font-style: italic; color: #555; line-height: 1.5;">
+          ${escapedMessage}
+        </div>
+      </div>
+    `;
+  }
+
+  // Construct plain-text email details
+  let visitorDetailsText = "";
+  if (hasContactInfo) {
+    visitorDetailsText += `Contactgegevens\n`;
+    if (name) visitorDetailsText += `Naam: ${name}\n`;
+    if (company) visitorDetailsText += `Bedrijf: ${company}\n`;
+    if (email) visitorDetailsText += `E-mail: ${email}\n`;
+    if (phone) visitorDetailsText += `Telefoon: ${phone}\n`;
+    visitorDetailsText += `\n`;
+  }
+  if (hasEventInfo) {
+    visitorDetailsText += `Eventdetails\n`;
+    if (eventDate) visitorDetailsText += `Gewenste datum: ${eventDate}\n`;
+    if (location) visitorDetailsText += `Locatie: ${location}\n`;
+    if (guests) visitorDetailsText += `Aantal gasten: ${guests}\n`;
+    if (type) visitorDetailsText += `Type gelegenheid: ${type}\n`;
+    if (service) visitorDetailsText += `Gewenste service: ${service}\n`;
+    visitorDetailsText += `\n`;
+  }
+  if (message) {
+    visitorDetailsText += `Jouw bericht\n`;
+    visitorDetailsText += `"${message}"\n\n`;
+  }
+
   // Email to Wandering Bar info@wanderingbar.nl
   const barHtml = `
     <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #EADBC8; border-radius: 8px;">
@@ -262,19 +330,28 @@ Verstuurd op: ${new Date().toLocaleString("nl-NL", { timeZone: "Europe/Amsterdam
     <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #F7F4F0; padding: 40px 20px; color: #1C1510;">
       <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #EADBC8;">
         <div style="background-color: #1C1510; padding: 30px; text-align: center;">
-          <h1 style="color: #F7F4F0; margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 24px; font-weight: normal; letter-spacing: 0.1em; text-transform: uppercase;">
-            Wandering <span style="font-style: italic; color: #EADBC8;">Bar</span>
-          </h1>
+          <a href="https://wanderingbar.nl" target="_blank" style="text-decoration: none; border: 0;">
+            <img
+              src="https://wandering-bar.wanderwerkhoven.workers.dev/assets/images/wandering-bar-logo.png"
+              alt="Wandering Bar"
+              width="200"
+              style="display: block; width: 200px; max-width: 100%; height: auto; margin: 0 auto; border: 0;"
+            />
+          </a>
         </div>
         <div style="padding: 40px 30px; line-height: 1.6; font-size: 16px;">
           <p style="margin-top: 0; font-weight: bold; font-size: 18px; color: #8C6239;">Beste ${escapedName},</p>
           <p>Bedankt voor je bericht aan Wandering Bar.</p>
           <p>We hebben je aanvraag goed ontvangen en nemen zo snel mogelijk contact met je op.</p>
           
-          <div style="margin: 30px 0; padding: 20px; background-color: #F7F4F0; border-radius: 8px; border-left: 4px solid #8C6239;">
-            <h4 style="margin-top: 0; margin-bottom: 10px; color: #1C1510; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Samenvatting van je bericht:</h4>
-            <p style="margin: 0; font-style: italic; color: #555; font-size: 14px;">"${escapedMessage}"</p>
+          <div style="margin: 30px 0; padding: 25px; background-color: #FAF8F5; border-radius: 12px; border: 1px solid #EADBC8;">
+            <h3 style="margin-top: 0; margin-bottom: 20px; color: #1C1510; font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: normal; letter-spacing: 0.05em; text-transform: uppercase; border-bottom: 2px solid #8C6239; padding-bottom: 8px; text-align: center;">Jouw aanvraag</h3>
+            ${visitorDetailsHtml}
           </div>
+
+          <p style="margin-bottom: 20px; font-size: 14px; color: #555;">
+            Klopt er iets niet of wilt u uw aanvraag aanvullen? Reageer gerust op deze e-mail. Dan passen we het samen met u aan.
+          </p>
 
           <p style="margin-bottom: 0;">Met vriendelijke groet,</p>
           <p style="margin-top: 5px; font-weight: bold; color: #8C6239;">Wandering Bar</p>
@@ -288,9 +365,21 @@ Verstuurd op: ${new Date().toLocaleString("nl-NL", { timeZone: "Europe/Amsterdam
   `;
 
   const visitorText = `
+Beste ${name},
+
 Bedankt voor je bericht aan Wandering Bar.
 
 We hebben je aanvraag goed ontvangen en nemen zo snel mogelijk contact met je op.
+
+--------------------------------------------------
+JOUW AANVRAAG
+--------------------------------------------------
+
+${visitorDetailsText.trim()}
+
+--------------------------------------------------
+
+Klopt er iets niet of wilt u uw aanvraag aanvullen? Reageer gerust op deze e-mail. Dan passen we het samen met u aan.
 
 Met vriendelijke groet,
 
