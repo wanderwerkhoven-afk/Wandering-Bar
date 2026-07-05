@@ -13,11 +13,13 @@ const schema = z.object({
   email: z.string().trim().email("Ongeldig e-mailadres").max(255),
   phone: z.string().trim().max(30).optional().or(z.literal("")),
   company: z.string().trim().max(100).optional().or(z.literal("")),
-  date: z.string().trim().max(50).optional().or(z.literal("")),
+  eventDate: z.string().trim().max(50).optional().or(z.literal("")),
   guests: z.string().trim().max(20).optional().or(z.literal("")),
   type: z.string().trim().max(50).optional().or(z.literal("")),
   service: z.string().trim().max(50).optional().or(z.literal("")),
+  location: z.string().trim().max(150).optional().or(z.literal("")),
   message: z.string().trim().min(10, "Vertel kort over je event").max(1000),
+  website: z.string().optional().or(z.literal("")), // Honeypot field
 });
 
 export function ContactForm() {
@@ -33,12 +35,30 @@ export function ContactForm() {
       toast.error(parsed.error.issues[0]?.message ?? "Controleer het formulier");
       return;
     }
+    
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 800));
-    setLoading(false);
-    toast.success("Bedankt! We nemen binnen 24 uur contact met je op.");
-    (e.target as HTMLFormElement).reset();
-    setDate(undefined);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(parsed.data),
+      });
+
+      const result = await response.json();
+      if (!response.ok) {
+        toast.error(result.error ?? "Er is iets fout gegaan. Probeer het later opnieuw.");
+      } else {
+        toast.success(result.message ?? "Bedankt! We hebben je aanvraag ontvangen.");
+        (e.target as HTMLFormElement).reset();
+        setDate(undefined);
+      }
+    } catch (err) {
+      toast.error("Er kon geen verbinding gemaakt worden. Controleer je internetverbinding.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   const inputCls =
@@ -46,13 +66,20 @@ export function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} className="grid gap-5 sm:grid-cols-2">
+      {/* Honeypot anti-spam field */}
+      <div className="hidden" aria-hidden="true">
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+      </div>
+
       <input name="name" placeholder="Naam" className={inputCls} required />
       <input name="company" placeholder="Bedrijfsnaam (optioneel)" className={inputCls} />
       <input name="phone" placeholder="Telefoon" className={inputCls} />
       <input name="email" type="email" placeholder="E-mail" className={inputCls} required />
       
+      <input name="location" placeholder="Locatie (Stad/Dorp)" className={cn(inputCls, "sm:col-span-2")} />
+
       <div className="relative">
-        <input type="hidden" name="date" value={date ? format(date, "yyyy-MM-dd") : ""} />
+        <input type="hidden" name="eventDate" value={date ? format(date, "yyyy-MM-dd") : ""} />
         <Popover>
           <PopoverTrigger asChild>
             <button
