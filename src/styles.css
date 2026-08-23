@@ -108,7 +108,10 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
     font-weight: 500;
@@ -116,13 +119,27 @@
 }
 
 @layer utilities {
-  .font-display { font-family: var(--font-display); }
-  .text-balance { text-wrap: balance; }
-  .bg-gradient-warm { background-image: var(--gradient-warm); }
-  .bg-gradient-glow { background-image: var(--gradient-glow); }
-  .shadow-elegant { box-shadow: var(--shadow-elegant); }
-  .shadow-soft { box-shadow: var(--shadow-soft); }
-  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .bg-gradient-warm {
+    background-image: var(--gradient-warm);
+  }
+  .bg-gradient-glow {
+    background-image: var(--gradient-glow);
+  }
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
 
   .glass {
     background-color: rgba(253, 250, 243, 0.8);
@@ -141,25 +158,410 @@
     transform: translateY(24px);
     animation: reveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
-  .reveal-delay-1 { animation-delay: 0.15s; }
-  .reveal-delay-2 { animation-delay: 0.3s; }
-  .reveal-delay-3 { animation-delay: 0.45s; }
+  .reveal-delay-1 {
+    animation-delay: 0.15s;
+  }
+  .reveal-delay-2 {
+    animation-delay: 0.3s;
+  }
+  .reveal-delay-3 {
+    animation-delay: 0.45s;
+  }
 
   @keyframes reveal {
-    to { opacity: 1; transform: translateY(0); }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .hover-lift {
-    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
+    transition:
+      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.5s ease;
   }
   .hover-lift:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-elegant);
   }
 
-  .img-zoom { overflow: hidden; }
+  .img-zoom {
+    overflow: hidden;
+  }
   .img-zoom img {
     transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .img-zoom:hover img { transform: scale(1.06); }
+  .img-zoom:hover img {
+    transform: scale(1.06);
+  }
+}
+
+/* ==========================================================================
+   Wandering Bar redesign 2026
+   Keyframes, basisregels en hover-states komen 1:1 uit het designbestand
+   "Redesign - Website.dc.html" en "Redesign - Coming Soon.dc.html".
+   ========================================================================== */
+
+@keyframes wbShake {
+  0%,
+  100% {
+    transform: rotate(-22deg);
+  }
+  6% {
+    transform: rotate(-14deg);
+  }
+  12% {
+    transform: rotate(-28deg);
+  }
+  18% {
+    transform: rotate(-15deg);
+  }
+  24% {
+    transform: rotate(-26deg);
+  }
+  30% {
+    transform: rotate(-22deg);
+  }
+}
+@keyframes wbFloatA {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(-2deg);
+  }
+}
+@keyframes wbFloatB {
+  0%,
+  100% {
+    transform: translateY(0) rotate(10deg);
+  }
+  50% {
+    transform: translateY(-26px) rotate(16deg);
+  }
+}
+@keyframes wbFloatC {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-10deg);
+  }
+}
+@keyframes wbPour {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+@keyframes wbTwinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.6) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15) rotate(45deg);
+  }
+}
+@keyframes wbMarquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes wbPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 oklch(0.8 0.105 85 / 0.5);
+  }
+  60% {
+    box-shadow: 0 0 0 9px oklch(0.8 0.105 85 / 0);
+  }
+}
+@keyframes wbClinkL {
+  0%,
+  100% {
+    transform: rotate(-14deg);
+  }
+  50% {
+    transform: rotate(-7deg);
+  }
+}
+@keyframes wbClinkR {
+  0%,
+  100% {
+    transform: rotate(14deg);
+  }
+  50% {
+    transform: rotate(7deg);
+  }
+}
+@keyframes wbBubble {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-46px);
+    opacity: 0;
+  }
+}
+@keyframes wbSway {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+}
+@keyframes wbCounterSway {
+  0%,
+  100% {
+    transform: rotate(4.5deg);
+  }
+  50% {
+    transform: rotate(-4.5deg);
+  }
+}
+@keyframes wbSpin360 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes wbRock {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+}
+@keyframes wbClink2L {
+  0%,
+  16% {
+    transform: rotate(-15deg);
+  }
+  30% {
+    transform: rotate(-2deg) translateY(-3px);
+  }
+  36% {
+    transform: rotate(-8deg);
+  }
+  44% {
+    transform: rotate(-4deg);
+  }
+  58%,
+  100% {
+    transform: rotate(-15deg);
+  }
+}
+@keyframes wbClink2R {
+  0%,
+  16% {
+    transform: rotate(15deg);
+  }
+  30% {
+    transform: rotate(2deg) translateY(-3px);
+  }
+  36% {
+    transform: rotate(8deg);
+  }
+  44% {
+    transform: rotate(4deg);
+  }
+  58%,
+  100% {
+    transform: rotate(15deg);
+  }
+}
+@keyframes wbClinkSpark {
+  0%,
+  26% {
+    opacity: 0;
+    transform: scale(0.3) rotate(0deg);
+  }
+  33% {
+    opacity: 1;
+    transform: scale(1.15) rotate(45deg);
+  }
+  48%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4) rotate(90deg);
+  }
+}
+@keyframes wbSlosh {
+  0%,
+  24%,
+  60%,
+  100% {
+    transform: skewX(0deg);
+  }
+  32% {
+    transform: skewX(7deg);
+  }
+  42% {
+    transform: skewX(-5deg);
+  }
+  50% {
+    transform: skewX(3deg);
+  }
+}
+
+/* Coming soon gebruikt eigen float-varianten en een reveal */
+@keyframes wbReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes wbCsFloatA {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-6deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(0deg);
+  }
+}
+@keyframes wbCsFloatB {
+  0%,
+  100% {
+    transform: translateY(0) rotate(8deg);
+  }
+  50% {
+    transform: translateY(-24px) rotate(14deg);
+  }
+}
+@keyframes wbCsFloatC {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-8deg);
+  }
+}
+
+/* Basisregels uit de design-head, gescoped op de site-wrapper */
+.wb-root a {
+  color: inherit;
+  text-decoration: none;
+}
+.wb-root a:hover {
+  color: var(--goud, oklch(0.8 0.105 85));
+}
+.wb-root ::selection {
+  background: oklch(0.8 0.105 85 / 0.3);
+}
+.wb-root input::placeholder,
+.wb-root textarea::placeholder {
+  color: var(--placeholder, oklch(0.93 0.02 85 / 0.35));
+}
+.wb-root input:focus,
+.wb-root textarea:focus,
+.wb-root select:focus {
+  outline: none;
+  border-color: var(--goud-soft, oklch(0.8 0.105 85 / 0.7)) !important;
+  box-shadow: 0 0 0 3px var(--goud-glow, oklch(0.8 0.105 85 / 0.12));
+}
+
+/* Hover-states (style-hover uit het design) */
+.wb-nav-link:hover {
+  color: var(--goud, oklch(0.8 0.105 85));
+}
+.wb-knop-rand:hover {
+  background: var(--goud, oklch(0.8 0.105 85));
+  color: var(--op-goud, oklch(0.15 0.018 50));
+  border-color: var(--goud, oklch(0.8 0.105 85));
+}
+.wb-knop-vast:hover {
+  transform: translateY(-2px);
+  color: var(--op-goud, oklch(0.15 0.018 50));
+}
+.wb-hero-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 26px 60px -18px var(--goud-soft, oklch(0.8 0.105 85 / 0.6));
+  color: var(--op-goud, oklch(0.15 0.018 50));
+}
+.wb-hero-cta2:hover {
+  border-color: var(--goud, oklch(0.8 0.105 85));
+  color: var(--goud, oklch(0.8 0.105 85));
+}
+.wb-zoom-traag:hover img {
+  transform: scale(1.05);
+}
+.wb-zoom-kaart:hover img {
+  transform: scale(1.06);
+}
+.wb-kaart-links:hover {
+  transform: translateY(-8px) rotate(-0.4deg);
+  box-shadow: 0 40px 80px -35px oklch(0.24 0.03 50 / 0.45);
+}
+.wb-kaart-rechts:hover {
+  transform: translateY(-8px) rotate(0.4deg);
+  box-shadow: 0 40px 80px -35px oklch(0.24 0.03 50 / 0.45);
+}
+.wb-meer-link:hover {
+  gap: 16px;
+  color: oklch(0.45 0.11 65);
+}
+.wb-brochure-knop:hover {
+  transform: translateY(-3px);
+  color: oklch(0.15 0.018 50);
+}
+.wb-pijler:hover {
+  transform: translateY(-8px);
+  border-color: var(--goud-soft, oklch(0.8 0.105 85 / 0.4));
+}
+.wb-event:hover {
+  transform: translateY(-6px);
+}
+.wb-proost-knop:hover {
+  transform: translateY(-3px);
+  color: oklch(0.15 0.018 50);
+}
+.wb-contact-link:hover {
+  color: var(--goud, oklch(0.8 0.105 85));
+}
+.wb-form-knop:hover {
+  transform: translateY(-2px);
+}
+.wb-social:hover {
+  background: var(--goud-vast, oklch(0.8 0.105 85));
+  color: oklch(0.12 0.014 50);
+}
+.wb-footer-link:hover {
+  color: var(--goud-vast, oklch(0.8 0.105 85));
+}
+.wb-cs-cta:hover {
+  transform: translateY(-3px);
+  color: oklch(0.15 0.018 50);
+}
+.wb-cs-tel:hover {
+  color: oklch(0.8 0.105 85);
+}
+.wb-cs-secret:hover {
+  color: oklch(0.8 0.105 85);
+  transform: scale(1.15);
+}
+
+/* Coming soon heeft geen animaties-schakelaar in het design. Bij prefers-reduced-motion
+   staan de sier-animaties stil en staat de intro direct in de eindstand. */
+@media (prefers-reduced-motion: reduce) {
+  .wb-cs-reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .wb-cs-float {
+    animation: none !important;
+  }
 }
