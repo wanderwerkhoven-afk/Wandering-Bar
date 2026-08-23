@@ -449,6 +449,11 @@
     transform: translateY(-12px) rotate(-8deg);
   }
 }
+@keyframes wbBadgeSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 /* Basisregels uit de design-head, gescoped op de site-wrapper */
 .wb-root a {
@@ -552,6 +557,28 @@
   color: oklch(0.8 0.105 85);
   transform: scale(1.15);
 }
+.wb-root .wb-badge {
+  transition:
+    opacity 0.6s,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* De rotatie staat hier en niet inline, anders wint de inline animation-shorthand
+   van de hover-override hieronder. */
+.wb-root .wb-badge-ring {
+  animation: wbBadgeSpin 20s linear infinite;
+}
+.wb-root .wb-badge:hover {
+  transform: scale(1.06);
+  color: inherit;
+}
+.wb-root .wb-badge:hover .wb-badge-ring {
+  animation-duration: 10s;
+}
+.wb-root .wb-badge:focus-visible {
+  outline: 2px solid var(--goud, oklch(0.8 0.105 85));
+  outline-offset: 4px;
+  border-radius: 999px;
+}
 
 /* Coming soon heeft geen animaties-schakelaar in het design. Bij prefers-reduced-motion
    staan de sier-animaties stil en staat de intro direct in de eindstand. */
@@ -563,6 +590,12 @@
   }
   .wb-cs-float {
     animation: none !important;
+  }
+  .wb-badge-ring {
+    animation: none !important;
+  }
+  .wb-root .wb-badge:hover {
+    transform: none;
   }
 }
 
@@ -675,6 +708,15 @@
   }
   .wb-root .wb-cs-titel {
     font-size: clamp(44px, 12vw, 84px) !important;
+  }
+
+  /* scroll-badge: kleiner en dichter bij de rand, zodat hij zo min mogelijk
+     van de gestapelde content bedekt maar wel een ruim tapdoel blijft */
+  .wb-root .wb-badge {
+    right: 14px !important;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+    transform: scale(0.66) !important;
+    transform-origin: bottom right;
   }
 }
 
