@@ -104,6 +104,7 @@ export function BarsSection() {
     >
       <div style={{ maxWidth: "1240px", margin: "0 auto", padding: "0 28px" }}>
         <div
+          className="wb-kop-rij"
           style={{
             display: "flex",
             alignItems: "flex-end",

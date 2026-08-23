@@ -641,6 +641,14 @@
     justify-content: flex-start !important;
   }
 
+  /* kopblok en intro-alinea naast elkaar wordt op mobiel een stapel */
+  .wb-root .wb-kop-rij {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 24px !important;
+    margin-bottom: 40px !important;
+  }
+
   /* events houdt twee kolommen, zonder uitvergrote tegels */
   .wb-root .wb-grid-events {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
