@@ -1,68 +1,201 @@
-import { Instagram, Facebook, Linkedin } from "lucide-react";
+import type { CSSProperties } from "react";
+import { FacebookIcon, InstagramIcon, LinkedinIcon } from "./siteIcons";
+
+const kopStijl: CSSProperties = {
+  margin: "0 0 20px 0",
+  fontFamily: "'Figtree', ui-sans-serif, system-ui, sans-serif",
+  fontSize: "12px",
+  fontWeight: 700,
+  letterSpacing: "0.26em",
+  textTransform: "uppercase",
+  color: "var(--goud-vast, oklch(0.8 0.105 85))",
+};
+
+const lijstStijl: CSSProperties = {
+  listStyle: "none",
+  margin: 0,
+  padding: 0,
+  display: "flex",
+  flexDirection: "column",
+  gap: "12px",
+  fontSize: "14px",
+  color: "oklch(0.93 0.02 85 / 0.7)",
+};
+
+const socialStijl: CSSProperties = {
+  height: "42px",
+  width: "42px",
+  borderRadius: "999px",
+  border: "1px solid var(--goud-vast-soft, oklch(0.8 0.105 85 / 0.3))",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  color: "var(--goud-vast, oklch(0.8 0.105 85))",
+  transition: "all 0.3s",
+};
+
+const diensten = ["Cocktail catering", "Cocktail workshops", "Wijnbar", "Speciaalbier bar"];
+const eventLinks = [
+  "Bruiloften",
+  "Bedrijfsevents",
+  "Personeelsborrels",
+  "Tuinfeesten",
+  "Verjaardagen",
+];
 
 export function Footer() {
   return (
-    <footer className="bg-espresso text-cream/80">
-      <div className="mx-auto max-w-7xl px-6 py-20 grid gap-12 md:grid-cols-4">
-        <div className="md:col-span-1">
-          <div className="font-display text-3xl text-cream">
-            Wandering<br />
-            <span className="italic text-champagne">Bar</span>
+    <footer
+      style={{
+        background: "oklch(0.12 0.014 50)",
+        borderTop: "1px solid var(--goud-vast-glow, oklch(0.8 0.105 85 / 0.12))",
+      }}
+    >
+      <div
+        className="wb-grid-footer"
+        style={{
+          maxWidth: "1240px",
+          margin: "0 auto",
+          padding: "80px 28px 60px 28px",
+          display: "grid",
+          gap: "56px",
+          gridTemplateColumns: "1.4fr 0.8fr 0.8fr 1fr",
+        }}
+      >
+        <div>
+          <div style={{ display: "flex", alignItems: "baseline", gap: "10px" }}>
+            <span
+              style={{
+                fontFamily: "'Grandstander', sans-serif",
+                fontWeight: 900,
+                fontSize: "30px",
+                textTransform: "uppercase",
+                color: "oklch(0.95 0.02 85)",
+              }}
+            >
+              Wandering
+            </span>
+            <span
+              style={{
+                fontFamily: "'Yellowtail', cursive",
+                fontSize: "36px",
+                color: "var(--goud-vast, oklch(0.8 0.105 85))",
+                transform: "rotate(-4deg)",
+                display: "inline-block",
+              }}
+            >
+              Bar
+            </span>
           </div>
-          <p className="mt-4 text-sm leading-relaxed text-cream/60">
-            Luxe mobiele cocktailbars, catering en workshops voor onvergetelijke events in heel Nederland.
+          <p
+            style={{
+              margin: "18px 0 0 0",
+              fontSize: "14px",
+              lineHeight: 1.7,
+              color: "oklch(0.93 0.02 85 / 0.55)",
+              maxWidth: "300px",
+            }}
+          >
+            Luxe mobiele cocktailbars, catering en workshops voor onvergetelijke events in heel
+            Nederland.
           </p>
-          <div className="mt-6 flex gap-3">
-            {[Instagram, Facebook, Linkedin].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="h-10 w-10 rounded-full border border-cream/15 flex items-center justify-center hover:bg-copper hover:border-copper transition-colors"
-              >
-                <Icon className="h-4 w-4" />
-              </a>
-            ))}
+          <div style={{ marginTop: "26px", display: "flex", gap: "12px" }}>
+            <a href="#" aria-label="Instagram" className="wb-social" style={socialStijl}>
+              <InstagramIcon width="17" height="17" />
+            </a>
+            <a href="#" aria-label="Facebook" className="wb-social" style={socialStijl}>
+              <FacebookIcon width="17" height="17" />
+            </a>
+            <a href="#" aria-label="LinkedIn" className="wb-social" style={socialStijl}>
+              <LinkedinIcon width="17" height="17" />
+            </a>
           </div>
         </div>
 
         <div>
-          <h4 className="text-cream text-sm uppercase tracking-widest mb-5">Diensten</h4>
-          <ul className="space-y-3 text-sm">
-            <li><a href="#diensten" className="hover:text-copper">Cocktail catering</a></li>
-            <li><a href="#diensten" className="hover:text-copper">Cocktail workshops</a></li>
-            <li><a href="#diensten" className="hover:text-copper">Wijnbar</a></li>
-            <li><a href="#diensten" className="hover:text-copper">Speciaalbier bar</a></li>
+          <h4 style={kopStijl}>Diensten</h4>
+          <ul style={lijstStijl}>
+            {diensten.map((dienst) => (
+              <li key={dienst}>
+                <a href="#diensten" className="wb-footer-link">
+                  {dienst}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div>
-          <h4 className="text-cream text-sm uppercase tracking-widest mb-5">Events</h4>
-          <ul className="space-y-3 text-sm">
-            <li><a href="#events" className="hover:text-copper">Bruiloften</a></li>
-            <li><a href="#events" className="hover:text-copper">Bedrijfsevents</a></li>
-            <li><a href="#events" className="hover:text-copper">Personeelsborrels</a></li>
-            <li><a href="#events" className="hover:text-copper">Tuinfeesten</a></li>
-            <li><a href="#events" className="hover:text-copper">Verjaardagen</a></li>
-            <li><a href="#events" className="hover:text-copper">Workshops</a></li>
+          <h4 style={kopStijl}>Events</h4>
+          <ul style={lijstStijl}>
+            {eventLinks.map((label) => (
+              <li key={label}>
+                <a href="#events" className="wb-footer-link">
+                  {label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div>
-          <h4 className="text-cream text-sm uppercase tracking-widest mb-5">Contact</h4>
-          <ul className="space-y-3 text-sm">
-            <li>Thuisbasis in Enkhuizen<br />Werkzaam door heel Nederland</li>
-            <li><a href="tel:+31610332492" className="hover:text-copper">+31 (0)6 10 33 24 92</a></li>
-            <li><a href="mailto:info@wanderingbar.nl" className="hover:text-copper">info@wanderingbar.nl</a></li>
+          <h4 style={kopStijl}>Contact</h4>
+          <ul style={lijstStijl}>
+            <li>
+              Thuisbasis in Enkhuizen
+              <br />
+              Werkzaam door heel Nederland
+            </li>
+            <li>
+              <a href="tel:+31610332492" className="wb-footer-link">
+                +31 (0)6 10 33 24 92
+              </a>
+            </li>
+            <li>
+              <a href="mailto:info@wanderingbar.nl" className="wb-footer-link">
+                info@wanderingbar.nl
+              </a>
+            </li>
           </ul>
         </div>
       </div>
 
-      <div className="border-t border-cream/10">
-        <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-cream/50">
-          <p>© {new Date().getFullYear()} Wandering Bar. Alle rechten voorbehouden.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-copper">Privacy</a>
-            <a href="#" className="hover:text-copper">Algemene voorwaarden</a>
+      <div style={{ borderTop: "1px solid oklch(0.93 0.02 85 / 0.08)" }}>
+        <div
+          className="wb-footer-balk"
+          style={{
+            maxWidth: "1240px",
+            margin: "0 auto",
+            padding: "24px 28px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "14px",
+            fontSize: "12.5px",
+            color: "oklch(0.93 0.02 85 / 0.4)",
+          }}
+        >
+          <p style={{ margin: 0 }}>
+            © {new Date().getFullYear()} Wandering Bar. Alle rechten voorbehouden.
+          </p>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <span
+              style={{
+                fontFamily: "'Yellowtail', cursive",
+                fontSize: "17px",
+                color: "var(--goud-vast-soft, oklch(0.8 0.105 85 / 0.5))",
+              }}
+            >
+              geschud, niet geroerd
+            </span>
+          </div>
+          <div style={{ display: "flex", gap: "24px" }}>
+            <a href="#" className="wb-footer-link">
+              Privacy
+            </a>
+            <a href="#" className="wb-footer-link">
+              Algemene voorwaarden
+            </a>
           </div>
         </div>
       </div>
