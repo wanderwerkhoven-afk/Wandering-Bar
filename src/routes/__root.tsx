@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Luxe mobiele cocktailbars, cocktail catering, workshops en speciale wijn- & bierbars voor bruiloften en bedrijfsevents.",
       },
-      { property: "og:title", content: "Wandering Bar — Cocktailbeleving op locatie" },
+      { property: "og:title", content: "Wandering Bar · Cocktailbeleving op locatie" },
       {
         property: "og:description",
         content:

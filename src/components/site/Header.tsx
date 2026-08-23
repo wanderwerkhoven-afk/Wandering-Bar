@@ -198,12 +198,18 @@ export function Header() {
 
   return (
     <div style={{ position: "fixed", left: 0, right: 0, top: 0, zIndex: 80 }}>
+      {/* Twee lagen uit het design. Alleen de zichtbare laag zit in de a11y-tree en
+          is focusbaar, zodat nav en thema-knop niet dubbel voorkomen. */}
       <header
+        aria-hidden={solide}
+        inert={solide}
         style={{ height: "88px", display: "flex", alignItems: "center", background: "transparent" }}
       >
         <HeaderRij vast={false} />
       </header>
       <header
+        aria-hidden={!solide}
+        inert={!solide}
         style={{
           position: "absolute",
           inset: 0,

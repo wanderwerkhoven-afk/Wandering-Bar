@@ -16,6 +16,7 @@ import { THEMA_OPSLAG_KEY, themaVariabelen, type Thema } from "./themePalette";
 import {
   useBodyThema,
   useCountUp,
+  useDocumentTitel,
   useHeroIntro,
   useParallax,
   usePauzeerCssAnimaties,
@@ -49,6 +50,7 @@ export function SiteView() {
     });
   }, []);
 
+  useDocumentTitel("Wandering Bar · Cocktailbeleving op locatie");
   useHeroIntro(rootRef);
   useReveals(rootRef);
   useCountUp(rootRef);

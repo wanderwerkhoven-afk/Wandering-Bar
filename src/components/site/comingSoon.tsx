@@ -1,13 +1,14 @@
 import heroImg from "@/assets/hero-bartender.jpg";
 import { PijlRechts, Ster } from "./siteIcons";
 import { PourScene } from "./pourSceneView";
-import { useBodyThema } from "./siteMotion";
+import { useBodyThema, useDocumentTitel } from "./siteMotion";
 
 const GOUD = "oklch(0.8 0.105 85)";
 const GOUD_ZACHT = "oklch(0.8 0.105 85 / 0.15)";
 const REVEAL = (delay: string) => `wbReveal 1s cubic-bezier(0.22,1,0.36,1) ${delay} forwards`;
 
 export function ComingSoon({ onEnter }: { onEnter: () => void }) {
+  useDocumentTitel("Wandering Bar · Binnenkort geschonken");
   useBodyThema("donker");
 
   return (

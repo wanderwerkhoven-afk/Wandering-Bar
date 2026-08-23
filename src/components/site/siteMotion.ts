@@ -16,6 +16,16 @@ function alle<T extends Element>(root: Element, selector: string): T[] {
 }
 
 /**
+ * Titel per view: coming soon en de website hebben in het design elk hun eigen titel.
+ * De route-title in index.tsx blijft de fallback voor de eerste server-render.
+ */
+export function useDocumentTitel(titel: string): void {
+  useEffect(() => {
+    document.title = titel;
+  }, [titel]);
+}
+
+/**
  * Hero-intro met de Web Animations API: letter-voor-letter, script-clip, badge-pop,
  * hero-fades en de arch-reveal. Keyframes, delays en easings uit het design-script.
  */
