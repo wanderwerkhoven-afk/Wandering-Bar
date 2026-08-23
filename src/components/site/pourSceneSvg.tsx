@@ -174,6 +174,7 @@ export function PourSceneSvg({ svgRef, width, height, goud, metTwinkles = false 
         <>
           <path
             data-anim
+            className="wb-cs-float"
             d="M240 96 l5 10 l10 5 l-10 5 l-5 10 l-5 -10 l-10 -5 l10 -5 Z"
             fill={goud}
             stroke="none"
@@ -184,6 +185,7 @@ export function PourSceneSvg({ svgRef, width, height, goud, metTwinkles = false 
           ></path>
           <path
             data-anim
+            className="wb-cs-float"
             d="M52 230 l4 8 l8 4 l-8 4 l-4 8 l-4 -8 l-8 -4 l8 -4 Z"
             fill={goud}
             stroke="none"
@@ -194,6 +196,7 @@ export function PourSceneSvg({ svgRef, width, height, goud, metTwinkles = false 
           ></path>
           <path
             data-anim
+            className="wb-cs-float"
             d="M262 300 l3.4 7 l7 3.4 l-7 3.4 l-3.4 7 l-3.4 -7 l-7 -3.4 l7 -3.4 Z"
             fill={goud}
             stroke="none"

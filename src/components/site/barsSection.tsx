@@ -93,6 +93,7 @@ export function BarsSection() {
   return (
     <section
       id="bars"
+      className="wb-sectie"
       style={{
         background: "var(--sec-bg, oklch(0.95 0.025 85))",
         color: INK,
@@ -171,7 +172,11 @@ export function BarsSection() {
           </p>
         </div>
 
-        <div id="diensten" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "30px" }}>
+        <div
+          id="diensten"
+          className="wb-grid-kaarten"
+          style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "30px" }}
+        >
           {diensten.map((dienst, i) => (
             <article
               key={dienst.titel}
@@ -276,6 +281,7 @@ export function BarsSection() {
             }}
           />
           <div
+            className="wb-grid-brochure"
             style={{
               position: "relative",
               display: "grid",
@@ -335,7 +341,10 @@ export function BarsSection() {
                 inspiratiebrochure.
               </p>
             </div>
-            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <div
+              className="wb-brochure-actie"
+              style={{ display: "flex", justifyContent: "flex-end" }}
+            >
               <a
                 href="#contact"
                 className="wb-brochure-knop"

@@ -26,8 +26,9 @@ const statKolomStijl: CSSProperties = {
 
 export function OverSection() {
   return (
-    <section id="over" style={{ padding: "0 0 150px 0" }}>
+    <section id="over" className="wb-sectie-onder" style={{ padding: "0 0 150px 0" }}>
       <div
+        className="wb-grid-2"
         style={{
           maxWidth: "1240px",
           margin: "0 auto",
@@ -110,6 +111,7 @@ export function OverSection() {
           </div>
           <div
             data-reveal="240"
+            className="wb-stats"
             style={{
               marginTop: "44px",
               display: "grid",
@@ -119,7 +121,7 @@ export function OverSection() {
             }}
           >
             <div style={statKolomStijl}>
-              <div style={statWaardeStijl}>
+              <div className="wb-stat-waarde" style={statWaardeStijl}>
                 <span data-count="10" data-suffix="+">
                   0+
                 </span>
@@ -127,7 +129,7 @@ export function OverSection() {
               <div style={statLabelStijl}>Jaar ervaring</div>
             </div>
             <div style={statKolomStijl}>
-              <div style={statWaardeStijl}>
+              <div className="wb-stat-waarde" style={statWaardeStijl}>
                 <span data-count="500" data-suffix="+">
                   0+
                 </span>
@@ -135,7 +137,7 @@ export function OverSection() {
               <div style={statLabelStijl}>Events per jaar</div>
             </div>
             <div style={statKolomStijl}>
-              <div style={statWaardeStijl}>
+              <div className="wb-stat-waarde" style={statWaardeStijl}>
                 <span data-count="4.9" data-dec="1">
                   0.0
                 </span>
@@ -177,6 +179,7 @@ export function OverSection() {
           ></div>
           <div
             data-anim
+            className="wb-deco-weg"
             style={{
               position: "absolute",
               bottom: "40px",

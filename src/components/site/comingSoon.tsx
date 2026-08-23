@@ -95,6 +95,7 @@ export function ComingSoon({ onEnter }: { onEnter: () => void }) {
             </span>
           </div>
           <div
+            className="wb-cs-badge"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -125,6 +126,7 @@ export function ComingSoon({ onEnter }: { onEnter: () => void }) {
       </header>
 
       <div
+        className="wb-cs-grid"
         style={{
           boxSizing: "border-box",
           position: "relative",
@@ -158,7 +160,7 @@ export function ComingSoon({ onEnter }: { onEnter: () => void }) {
             Mobiele cocktailbar · Catering · Workshops
           </p>
           <h1
-            className="wb-cs-reveal"
+            className="wb-cs-reveal wb-cs-titel"
             style={{
               margin: 0,
               fontFamily: "'Grandstander', sans-serif",
@@ -267,7 +269,7 @@ export function ComingSoon({ onEnter }: { onEnter: () => void }) {
         </div>
 
         <div
-          className="wb-cs-reveal"
+          className="wb-cs-reveal wb-cs-visual"
           style={{
             position: "relative",
             height: "560px",
@@ -276,12 +278,13 @@ export function ComingSoon({ onEnter }: { onEnter: () => void }) {
           }}
         >
           <div
+            className="wb-cs-scene"
             style={{ position: "absolute", top: "6%", left: "50%", transform: "translateX(-50%)" }}
           >
             <PourScene width={330} height={536} goud={GOUD} metTwinkles />
           </div>
           <div
-            className="wb-cs-float"
+            className="wb-cs-float wb-cs-deco"
             style={{
               position: "absolute",
               top: "30px",
@@ -326,7 +329,7 @@ export function ComingSoon({ onEnter }: { onEnter: () => void }) {
             </svg>
           </div>
           <div
-            className="wb-cs-float"
+            className="wb-cs-float wb-cs-deco"
             style={{
               position: "absolute",
               bottom: "60px",
@@ -359,7 +362,7 @@ export function ComingSoon({ onEnter }: { onEnter: () => void }) {
             </svg>
           </div>
           <div
-            className="wb-cs-float"
+            className="wb-cs-float wb-cs-deco"
             style={{
               position: "absolute",
               bottom: "-4px",
@@ -387,6 +390,7 @@ export function ComingSoon({ onEnter }: { onEnter: () => void }) {
       </div>
 
       <div
+        className="wb-cs-strip"
         style={{
           position: "relative",
           zIndex: 10,

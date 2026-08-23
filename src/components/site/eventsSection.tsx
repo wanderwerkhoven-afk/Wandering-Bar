@@ -81,7 +81,7 @@ const randStijl: CSSProperties = {
 
 export function EventsSection() {
   return (
-    <section id="events" style={{ padding: "70px 0 150px 0" }}>
+    <section id="events" className="wb-sectie-onder" style={{ padding: "70px 0 150px 0" }}>
       <div style={{ maxWidth: "1240px", margin: "0 auto", padding: "0 28px" }}>
         <div style={{ textAlign: "center", marginBottom: "70px" }}>
           <p
@@ -125,13 +125,16 @@ export function EventsSection() {
             </span>
           </h2>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "22px" }}>
+        <div
+          className="wb-grid-events"
+          style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "22px" }}
+        >
           {tegels.map((tegel) => (
             <a
               key={tegel.titel}
               href="#contact"
               data-reveal={tegel.reveal}
-              className="wb-event"
+              className={tegel.groot ? "wb-event wb-event-groot" : "wb-event"}
               style={{
                 gridColumn: tegel.groot ? "span 2" : undefined,
                 gridRow: tegel.groot ? "span 2" : undefined,
@@ -156,6 +159,7 @@ export function EventsSection() {
               <div style={overlayStijl}></div>
               <div style={randStijl}></div>
               <div
+                className="wb-event-tekst"
                 style={{
                   position: "absolute",
                   bottom: 0,

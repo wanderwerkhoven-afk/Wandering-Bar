@@ -4,8 +4,9 @@ const GOUD = "var(--goud, oklch(0.8 0.105 85))";
 
 export function FilosofieSection() {
   return (
-    <section style={{ padding: "150px 0", position: "relative" }}>
+    <section className="wb-sectie" style={{ padding: "150px 0", position: "relative" }}>
       <div
+        className="wb-grid-2"
         style={{
           maxWidth: "1240px",
           margin: "0 auto",
@@ -49,6 +50,7 @@ export function FilosofieSection() {
           ></div>
           <div
             data-anim
+            className="wb-deco-weg"
             style={{
               position: "absolute",
               top: "26px",

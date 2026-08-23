@@ -38,7 +38,7 @@ const reviews = [
 
 export function ReviewsSection() {
   return (
-    <section style={{ padding: "0 0 150px 0" }}>
+    <section className="wb-sectie-onder" style={{ padding: "0 0 150px 0" }}>
       <div style={{ maxWidth: "1240px", margin: "0 auto", padding: "0 28px" }}>
         <div style={{ textAlign: "center", marginBottom: "66px" }}>
           <p
@@ -82,12 +82,15 @@ export function ReviewsSection() {
             </span>
           </h2>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "26px" }}>
+        <div
+          className="wb-grid-3"
+          style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "26px" }}
+        >
           {reviews.map((review) => (
             <article
               key={review.naam}
               data-reveal={review.reveal}
-              className="wb-pijler"
+              className="wb-lift-kaart"
               style={kaartStijl}
             >
               <div

@@ -3,6 +3,7 @@ import { FacebookIcon, InstagramIcon, LinkedinIcon } from "./siteIcons";
 
 const kopStijl: CSSProperties = {
   margin: "0 0 20px 0",
+  fontFamily: "'Figtree', ui-sans-serif, system-ui, sans-serif",
   fontSize: "12px",
   fontWeight: 700,
   letterSpacing: "0.26em",
@@ -51,6 +52,7 @@ export function Footer() {
       }}
     >
       <div
+        className="wb-grid-footer"
         style={{
           maxWidth: "1240px",
           margin: "0 auto",
@@ -160,6 +162,7 @@ export function Footer() {
 
       <div style={{ borderTop: "1px solid oklch(0.93 0.02 85 / 0.08)" }}>
         <div
+          className="wb-footer-balk"
           style={{
             maxWidth: "1240px",
             margin: "0 auto",

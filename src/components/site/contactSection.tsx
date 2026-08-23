@@ -49,8 +49,9 @@ function ContactRegel({
 
 export function ContactSection() {
   return (
-    <section id="contact" style={{ padding: "0 0 150px 0" }}>
+    <section id="contact" className="wb-sectie-onder" style={{ padding: "0 0 150px 0" }}>
       <div
+        className="wb-grid-contact"
         style={{
           maxWidth: "1240px",
           margin: "0 auto",
@@ -145,6 +146,7 @@ export function ContactSection() {
         </div>
         <div
           data-reveal="120"
+          className="wb-form-kaart"
           style={{
             borderRadius: "28px",
             background: "var(--kaart, oklch(0.17 0.02 52 / 0.7))",

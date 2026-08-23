@@ -5,7 +5,7 @@ import { SiteView } from "@/components/site/siteView";
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [{ title: "Wandering Bar · Cocktailbeleving op locatie" }],
+    meta: [{ title: "Wandering Bar · Binnenkort geschonken" }],
   }),
   component: LandingPage,
 });

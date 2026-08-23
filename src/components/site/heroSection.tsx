@@ -68,6 +68,7 @@ export function HeroSection({ heroRef }: { heroRef: RefObject<HTMLElement | null
       }}
     >
       <div
+        className="wb-hero-grid"
         style={{
           boxSizing: "border-box",
           flex: 1,
@@ -113,6 +114,7 @@ export function HeroSection({ heroRef }: { heroRef: RefObject<HTMLElement | null
             Nu beschikbaar voor boekingen
           </div>
           <h1
+            className="wb-hero-titel"
             style={{
               margin: 0,
               fontFamily: "'Grandstander', sans-serif",
@@ -238,7 +240,7 @@ export function HeroSection({ heroRef }: { heroRef: RefObject<HTMLElement | null
           </div>
         </div>
 
-        <div style={{ position: "relative", height: "640px" }}>
+        <div className="wb-hero-visual" style={{ position: "relative", height: "640px" }}>
           <div
             data-para="14"
             style={{ position: "absolute", inset: 0, transition: PARA_TRANSITIE }}
@@ -280,6 +282,7 @@ export function HeroSection({ heroRef }: { heroRef: RefObject<HTMLElement | null
 
           <div
             data-para="34"
+            className="wb-hero-deco"
             style={{
               position: "absolute",
               top: "-52px",
@@ -293,6 +296,7 @@ export function HeroSection({ heroRef }: { heroRef: RefObject<HTMLElement | null
 
           <div
             data-para="26"
+            className="wb-hero-deco"
             style={{
               position: "absolute",
               bottom: "36px",
@@ -343,6 +347,7 @@ export function HeroSection({ heroRef }: { heroRef: RefObject<HTMLElement | null
 
           <div
             data-para="44"
+            className="wb-hero-deco"
             style={{
               position: "absolute",
               top: "186px",
@@ -382,6 +387,7 @@ export function HeroSection({ heroRef }: { heroRef: RefObject<HTMLElement | null
 
           <div
             data-para="20"
+            className="wb-hero-deco"
             style={{
               position: "absolute",
               bottom: "-6px",

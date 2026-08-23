@@ -129,6 +129,7 @@ const pijlers: Pijler[] = [
 export function PijlersSection() {
   return (
     <section
+      className="wb-sectie"
       style={{
         padding: "150px 0",
         position: "relative",
@@ -181,6 +182,7 @@ export function PijlersSection() {
           maken
         </h2>
         <div
+          className="wb-grid-3"
           style={{
             marginTop: "90px",
             display: "grid",
@@ -192,7 +194,7 @@ export function PijlersSection() {
             <div
               key={pijler.titel}
               data-reveal={pijler.reveal}
-              className="wb-pijler"
+              className="wb-lift-kaart"
               style={kaartStijl}
             >
               <div style={pijler.ringExtra ? { ...ringStijl, position: "relative" } : ringStijl}>

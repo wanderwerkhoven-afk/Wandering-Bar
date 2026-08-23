@@ -69,7 +69,7 @@ export function ContactForm() {
         body: JSON.stringify(parsed.data),
       });
 
-      const result = (await response.json()) as { error?: string; message?: string };
+      const result = (await response.json()) as { error?: string };
       if (!response.ok) {
         toast.error(result.error ?? "Er is iets fout gegaan. Probeer het later opnieuw.");
       } else {
@@ -121,6 +121,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={onSubmit}
+      className="wb-form-grid"
       style={{ display: "grid", gap: "16px", gridTemplateColumns: "1fr 1fr" }}
     >
       {/* Honeypot anti-spam field */}

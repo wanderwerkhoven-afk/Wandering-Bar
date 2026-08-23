@@ -6,7 +6,7 @@ const CLINK_EASE = "cubic-bezier(0.34,0.05,0.26,1)";
 
 export function ProostSection() {
   return (
-    <section style={{ padding: "40px 28px 150px 28px" }}>
+    <section className="wb-sectie-proost" style={{ padding: "40px 28px 150px 28px" }}>
       <div
         style={{
           maxWidth: "1240px",
@@ -19,6 +19,7 @@ export function ProostSection() {
         }}
       >
         <div
+          className="wb-proost-binnen"
           style={{ position: "relative", padding: "110px 60px 120px 60px", textAlign: "center" }}
         >
           <div

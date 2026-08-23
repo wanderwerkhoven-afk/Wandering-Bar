@@ -474,81 +474,81 @@
 }
 
 /* Hover-states (style-hover uit het design) */
-.wb-nav-link:hover {
+.wb-root .wb-nav-link:hover {
   color: var(--goud, oklch(0.8 0.105 85));
 }
-.wb-knop-rand:hover {
+.wb-root .wb-knop-rand:hover {
   background: var(--goud, oklch(0.8 0.105 85));
   color: var(--op-goud, oklch(0.15 0.018 50));
   border-color: var(--goud, oklch(0.8 0.105 85));
 }
-.wb-knop-vast:hover {
+.wb-root .wb-knop-vast:hover {
   transform: translateY(-2px);
   color: var(--op-goud, oklch(0.15 0.018 50));
 }
-.wb-hero-cta:hover {
+.wb-root .wb-hero-cta:hover {
   transform: translateY(-3px);
   box-shadow: 0 26px 60px -18px var(--goud-soft, oklch(0.8 0.105 85 / 0.6));
   color: var(--op-goud, oklch(0.15 0.018 50));
 }
-.wb-hero-cta2:hover {
+.wb-root .wb-hero-cta2:hover {
   border-color: var(--goud, oklch(0.8 0.105 85));
   color: var(--goud, oklch(0.8 0.105 85));
 }
-.wb-zoom-traag:hover img {
+.wb-root .wb-zoom-traag:hover img {
   transform: scale(1.05);
 }
-.wb-zoom-kaart:hover img {
+.wb-root .wb-zoom-kaart:hover img {
   transform: scale(1.06);
 }
-.wb-kaart-links:hover {
+.wb-root .wb-kaart-links:hover {
   transform: translateY(-8px) rotate(-0.4deg);
   box-shadow: 0 40px 80px -35px oklch(0.24 0.03 50 / 0.45);
 }
-.wb-kaart-rechts:hover {
+.wb-root .wb-kaart-rechts:hover {
   transform: translateY(-8px) rotate(0.4deg);
   box-shadow: 0 40px 80px -35px oklch(0.24 0.03 50 / 0.45);
 }
-.wb-meer-link:hover {
+.wb-root .wb-meer-link:hover {
   gap: 16px;
   color: oklch(0.45 0.11 65);
 }
-.wb-brochure-knop:hover {
+.wb-root .wb-brochure-knop:hover {
   transform: translateY(-3px);
   color: oklch(0.15 0.018 50);
 }
-.wb-pijler:hover {
+.wb-root .wb-lift-kaart:hover {
   transform: translateY(-8px);
   border-color: var(--goud-soft, oklch(0.8 0.105 85 / 0.4));
 }
-.wb-event:hover {
+.wb-root .wb-event:hover {
   transform: translateY(-6px);
 }
-.wb-proost-knop:hover {
+.wb-root .wb-proost-knop:hover {
   transform: translateY(-3px);
   color: oklch(0.15 0.018 50);
 }
-.wb-contact-link:hover {
+.wb-root .wb-contact-link:hover {
   color: var(--goud, oklch(0.8 0.105 85));
 }
-.wb-form-knop:hover {
+.wb-root .wb-form-knop:hover {
   transform: translateY(-2px);
 }
-.wb-social:hover {
+.wb-root .wb-social:hover {
   background: var(--goud-vast, oklch(0.8 0.105 85));
   color: oklch(0.12 0.014 50);
 }
-.wb-footer-link:hover {
+.wb-root .wb-footer-link:hover {
   color: var(--goud-vast, oklch(0.8 0.105 85));
 }
-.wb-cs-cta:hover {
+.wb-root .wb-cs-cta:hover {
   transform: translateY(-3px);
   color: oklch(0.15 0.018 50);
 }
-.wb-cs-tel:hover {
+.wb-root .wb-cs-tel:hover {
   color: oklch(0.8 0.105 85);
 }
-.wb-cs-secret:hover {
+.wb-root .wb-cs-secret:hover {
   color: oklch(0.8 0.105 85);
   transform: scale(1.15);
 }
@@ -563,5 +563,189 @@
   }
   .wb-cs-float {
     animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   Responsive. Het design is desktop-only; onderstaande queries laten de
+   desktop-pixels ongemoeid en stapelen uitsluitend onder de breakpoints.
+   De inline desktop-styles blijven staan, vandaar de !important-overrides.
+   ========================================================================== */
+
+@media (max-width: 899px) {
+  /* header: nav, CTA en thema-toggle verhuizen naar het mobiele menu */
+  .wb-root .wb-desktop-only {
+    display: none !important;
+  }
+  .wb-root .wb-burger {
+    display: inline-flex !important;
+  }
+
+  /* hero: een kolom, tekst boven, arch eronder, sierwerk weg */
+  .wb-root .wb-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    padding: 120px 28px 48px 28px !important;
+  }
+  .wb-root .wb-hero-visual {
+    height: 420px !important;
+  }
+  .wb-root .wb-hero-deco,
+  .wb-root .wb-deco-weg {
+    display: none !important;
+  }
+
+  /* koppen staan in het design op vaste pixelmaten; op smalle schermen zou een
+     lang woord als "cocktailbar" buiten de viewport vallen */
+  .wb-root h2 {
+    font-size: 40px !important;
+  }
+  .wb-root h2 span {
+    font-size: 36px !important;
+  }
+  .wb-root h3,
+  .wb-root h3 span {
+    font-size: 24px !important;
+  }
+  .wb-root .wb-event-tekst {
+    right: 0 !important;
+    padding: 18px !important;
+  }
+  .wb-root .wb-hero-titel {
+    font-size: clamp(44px, 12vw, 84px) !important;
+  }
+
+  /* vaste grids stapelen */
+  .wb-root .wb-grid-2,
+  .wb-root .wb-grid-3,
+  .wb-root .wb-grid-kaarten,
+  .wb-root .wb-grid-contact,
+  .wb-root .wb-grid-footer,
+  .wb-root .wb-cs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+  .wb-root .wb-grid-kaarten,
+  .wb-root .wb-grid-3 {
+    gap: 24px !important;
+  }
+  .wb-root .wb-grid-3 {
+    margin-top: 56px !important;
+  }
+  .wb-root .wb-grid-brochure {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    padding: 44px 32px !important;
+  }
+  .wb-root .wb-brochure-actie {
+    justify-content: flex-start !important;
+  }
+
+  /* events houdt twee kolommen, zonder uitvergrote tegels */
+  .wb-root .wb-grid-events {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+  .wb-root .wb-event-groot {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+  .wb-root .wb-grid-events img {
+    height: 260px !important;
+  }
+
+  /* coming soon */
+  .wb-root .wb-cs-visual {
+    height: 380px !important;
+  }
+  .wb-root .wb-cs-deco {
+    display: none !important;
+  }
+  .wb-root .wb-cs-scene {
+    transform: translateX(-50%) scale(0.7) !important;
+    transform-origin: top center;
+  }
+  .wb-root .wb-cs-titel {
+    font-size: clamp(44px, 12vw, 84px) !important;
+  }
+}
+
+@media (max-width: 639px) {
+  /* sectie-ritme; container-padding blijft 28px */
+  .wb-root .wb-sectie {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+  .wb-root .wb-sectie-onder {
+    padding-bottom: 80px !important;
+  }
+  .wb-root .wb-sectie-proost {
+    padding: 24px 20px 80px 20px !important;
+  }
+  .wb-root .wb-proost-binnen {
+    padding: 64px 24px 72px 24px !important;
+  }
+
+  .wb-root h2 {
+    font-size: 32px !important;
+  }
+  .wb-root h2 span {
+    font-size: 30px !important;
+  }
+
+  .wb-root .wb-lift-kaart {
+    padding: 28px !important;
+  }
+  .wb-root .wb-form-kaart {
+    padding: 26px !important;
+  }
+  .wb-root .wb-form-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .wb-root .wb-form-grid > * {
+    grid-column: auto !important;
+  }
+
+  /* de drie cijfers blijven naast elkaar, maar mogen de grid niet oprekken */
+  .wb-root .wb-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+  .wb-root .wb-stat-waarde {
+    font-size: 28px !important;
+  }
+
+  .wb-root .wb-footer-balk,
+  .wb-root .wb-cs-strip {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    text-align: center;
+    gap: 10px !important;
+  }
+  .wb-root .wb-cs-strip {
+    font-size: 10px !important;
+    letter-spacing: 0.18em !important;
+  }
+  .wb-root .wb-cs-badge {
+    font-size: 10px !important;
+    letter-spacing: 0.16em !important;
+    padding: 7px 12px !important;
+  }
+}
+
+@media (max-width: 559px) {
+  .wb-root .wb-grid-events {
+    grid-template-columns: 1fr !important;
+  }
+  .wb-root .wb-grid-events img {
+    height: 240px !important;
+  }
+}
+
+/* Het mobiele menu bestaat alleen onder de header-breakpoint. Bij een resize naar
+   desktop met open menu blijft het paneel zo niet hangen. */
+@media (min-width: 900px) {
+  .wb-root .wb-mobiel-menu {
+    display: none !important;
   }
 }
