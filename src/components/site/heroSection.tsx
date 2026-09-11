@@ -8,10 +8,11 @@ import {
   Ster,
   WijnGlasIcon,
 } from "./siteIcons";
-import { PourScene } from "./pourSceneView";
 
 const GOUD = "var(--goud, oklch(0.8 0.105 85))";
-const GOUD_GLOW = "var(--goud-glow, oklch(0.8 0.105 85 / 0.14))";
+const LIJN = "var(--lijn, oklch(0.8 0.105 85))";
+const LIJN_ZACHT = "var(--lijn-zacht, oklch(0.8 0.105 85 / 0.5))";
+const LIJN_VLAK = "var(--lijn-vlak, oklch(0.8 0.105 85 / 0.14))";
 const PARA_TRANSITIE = "translate 0.6s cubic-bezier(0.22,1,0.36,1)";
 
 const marqueeTekstStijl: CSSProperties = {
@@ -35,15 +36,15 @@ function MarqueeGroep() {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "44px", padding: "18px 22px" }}>
       <span style={marqueeTekstStijl}>Cocktail catering</span>
-      <CocktailGlasIcon width="20" height="26" stroke={GOUD} data-anim style={rockStijl("")} />
+      <CocktailGlasIcon width="20" height="26" stroke={LIJN} data-anim style={rockStijl("")} />
       <span style={marqueeTekstStijl}>Cocktail workshops</span>
-      <ShakerIcon width="18" height="26" stroke={GOUD} data-anim style={rockStijl("0.9s ")} />
+      <ShakerIcon width="18" height="26" stroke={LIJN} data-anim style={rockStijl("0.9s ")} />
       <span style={marqueeTekstStijl}>Luxe wijnbar</span>
-      <WijnGlasIcon width="18" height="26" stroke={GOUD} data-anim style={rockStijl("0.9s ")} />
+      <WijnGlasIcon width="18" height="26" stroke={LIJN} data-anim style={rockStijl("0.9s ")} />
       <span style={marqueeTekstStijl}>Speciaalbier bar</span>
-      <BierIcon width="22" height="26" stroke={GOUD} data-anim style={rockStijl("1.6s ")} />
+      <BierIcon width="22" height="26" stroke={LIJN} data-anim style={rockStijl("1.6s ")} />
       <span style={marqueeTekstStijl}>Gin &amp; tonic bar</span>
-      <Ster width="16" height="16" fill={GOUD} />
+      <Ster width="16" height="16" fill={LIJN} />
     </div>
   );
 }
@@ -274,24 +275,10 @@ export function HeroSection({ heroRef }: { heroRef: RefObject<HTMLElement | null
                 position: "absolute",
                 inset: "-16px",
                 borderRadius: "336px 336px 36px 36px",
-                border: "1px solid var(--goud-soft, oklch(0.8 0.105 85 / 0.35))",
+                border: "1px solid var(--rand-deco, oklch(0.8 0.105 85 / 0.35))",
                 pointerEvents: "none",
               }}
             ></div>
-          </div>
-
-          <div
-            data-para="34"
-            className="wb-hero-deco"
-            style={{
-              position: "absolute",
-              top: "-52px",
-              left: "-108px",
-              zIndex: 6,
-              transition: PARA_TRANSITIE,
-            }}
-          >
-            <PourScene width={296} height={481} goud={GOUD} />
           </div>
 
           <div
@@ -311,7 +298,7 @@ export function HeroSection({ heroRef }: { heroRef: RefObject<HTMLElement | null
                 height="140"
                 viewBox="0 0 110 140"
                 fill="none"
-                stroke={GOUD}
+                stroke={LIJN}
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -326,7 +313,7 @@ export function HeroSection({ heroRef }: { heroRef: RefObject<HTMLElement | null
                   }}
                 >
                   <path d="M18 16 h74 L55 66 Z"></path>
-                  <path d="M30 26 h50" opacity="0.4"></path>
+                  <path d="M30 26 h50" stroke={LIJN_ZACHT}></path>
                   <path d="M55 66 v46"></path>
                   <path d="M33 122 h44"></path>
                   <g
@@ -336,8 +323,8 @@ export function HeroSection({ heroRef }: { heroRef: RefObject<HTMLElement | null
                       transformOrigin: "55px 30px",
                     }}
                   >
-                    <path d="M27 24 h56 L55 61 Z" fill={GOUD_GLOW} stroke="none"></path>
-                    <circle cx="55" cy="34" r="6" fill={GOUD_GLOW}></circle>
+                    <path d="M27 24 h56 L55 61 Z" fill={LIJN_VLAK} stroke="none"></path>
+                    <circle cx="55" cy="34" r="6" fill={LIJN_VLAK}></circle>
                     <path d="M55 28 l10 -14"></path>
                   </g>
                 </g>
@@ -362,7 +349,7 @@ export function HeroSection({ heroRef }: { heroRef: RefObject<HTMLElement | null
                 height="72"
                 viewBox="0 0 72 72"
                 fill="none"
-                stroke={GOUD}
+                stroke={LIJN}
                 strokeWidth="2"
                 strokeLinecap="round"
                 aria-hidden="true"
@@ -375,10 +362,10 @@ export function HeroSection({ heroRef }: { heroRef: RefObject<HTMLElement | null
                   }}
                 >
                   <circle cx="36" cy="36" r="26"></circle>
-                  <circle cx="36" cy="36" r="19" opacity="0.55"></circle>
+                  <circle cx="36" cy="36" r="19" stroke={LIJN_ZACHT}></circle>
                   <path
                     d="M36 17 v38 M17 36 h38 M23 23 l26 26 M49 23 l-26 26"
-                    opacity="0.55"
+                    stroke={LIJN_ZACHT}
                   ></path>
                 </g>
               </svg>
@@ -402,14 +389,14 @@ export function HeroSection({ heroRef }: { heroRef: RefObject<HTMLElement | null
                 height="66"
                 viewBox="0 0 54 66"
                 fill="none"
-                stroke={GOUD}
+                stroke={LIJN}
                 strokeWidth="2"
                 strokeLinecap="round"
                 aria-hidden="true"
               >
-                <circle cx="24" cy="46" r="12" fill={GOUD_GLOW}></circle>
+                <circle cx="24" cy="46" r="12" fill={LIJN_VLAK}></circle>
                 <path d="M24 34 q2 -18 20 -26"></path>
-                <path d="M44 8 q-8 0 -10 8 q8 2 10 -8 Z" fill={GOUD_GLOW}></path>
+                <path d="M44 8 q-8 0 -10 8 q8 2 10 -8 Z" fill={LIJN_VLAK}></path>
               </svg>
             </div>
           </div>

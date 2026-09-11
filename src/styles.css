@@ -792,6 +792,51 @@
   }
 }
 
+/* Coming soon header onder 560px: beeldmerk plus woordmerk plus badge passen anders niet
+   naast elkaar; het woordmerk krimpt en de badge blijft op één regel. */
+@media (max-width: 559px) {
+  .wb-root .wb-cs-logo {
+    gap: 8px !important;
+  }
+  .wb-root .wb-cs-logo svg {
+    height: 30px !important;
+    width: 36px !important;
+  }
+  .wb-root .wb-cs-logo-woord > span:first-child {
+    font-size: 19px !important;
+  }
+  .wb-root .wb-cs-logo-woord > span:last-child {
+    font-size: 23px !important;
+  }
+  .wb-root .wb-cs-badge {
+    white-space: nowrap;
+    flex: none;
+  }
+  .wb-root .wb-cs-badge-lang {
+    display: none;
+  }
+}
+@media (min-width: 560px) {
+  .wb-root .wb-cs-badge-kort {
+    display: none;
+  }
+}
+
+@media (max-width: 359px) {
+  .wb-root .wb-logo-header {
+    gap: 8px !important;
+  }
+  .wb-root .wb-logo-header-woord {
+    gap: 5px !important;
+  }
+  .wb-root .wb-logo-header-woord > span:first-child {
+    font-size: 20px !important;
+  }
+  .wb-root .wb-logo-header-woord > span:last-child {
+    font-size: 24px !important;
+  }
+}
+
 /* Het mobiele menu bestaat alleen onder de header-breakpoint. Bij een resize naar
    desktop met open menu blijft het paneel zo niet hangen. */
 @media (min-width: 900px) {

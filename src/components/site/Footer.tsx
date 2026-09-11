@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { LogoMark } from "./logoMark";
 import { FacebookIcon, InstagramIcon, LinkedinIcon } from "./siteIcons";
 
 const kopStijl: CSSProperties = {
@@ -63,28 +64,35 @@ export function Footer() {
         }}
       >
         <div>
-          <div style={{ display: "flex", alignItems: "baseline", gap: "10px" }}>
-            <span
-              style={{
-                fontFamily: "'Grandstander', sans-serif",
-                fontWeight: 900,
-                fontSize: "30px",
-                textTransform: "uppercase",
-                color: "oklch(0.95 0.02 85)",
-              }}
-            >
-              Wandering
-            </span>
-            <span
-              style={{
-                fontFamily: "'Yellowtail', cursive",
-                fontSize: "36px",
-                color: "var(--goud-vast, oklch(0.8 0.105 85))",
-                transform: "rotate(-4deg)",
-                display: "inline-block",
-              }}
-            >
-              Bar
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <LogoMark
+              hoogte={40}
+              ink="oklch(0.95 0.02 85)"
+              goud="var(--goud-vast, oklch(0.8 0.105 85))"
+            />
+            <span style={{ display: "flex", alignItems: "baseline", gap: "10px" }}>
+              <span
+                style={{
+                  fontFamily: "'Grandstander', sans-serif",
+                  fontWeight: 900,
+                  fontSize: "30px",
+                  textTransform: "uppercase",
+                  color: "oklch(0.95 0.02 85)",
+                }}
+              >
+                Wandering
+              </span>
+              <span
+                style={{
+                  fontFamily: "'Yellowtail', cursive",
+                  fontSize: "36px",
+                  color: "var(--goud-vast, oklch(0.8 0.105 85))",
+                  transform: "rotate(-4deg)",
+                  display: "inline-block",
+                }}
+              >
+                Bar
+              </span>
             </span>
           </div>
           <p

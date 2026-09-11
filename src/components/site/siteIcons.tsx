@@ -68,7 +68,10 @@ export function BierIcon({ children, ...props }: SVGProps<SVGSVGElement>) {
     <svg viewBox="0 0 44 52" fill="none" strokeWidth="2.4" strokeLinecap="round" {...props}>
       <path d="M8 12 h22 v30 q0 4 -4 4 h-14 q-4 0 -4 -4 Z"></path>
       <path d="M30 18 h4 q6 0 6 8 q0 8 -6 8 h-4"></path>
-      <path d="M12 12 q0 -6 5 -6 q3 0 4 3 q1 -3 4 -3 q5 0 5 6" opacity="0.6"></path>
+      <path
+        d="M12 12 q0 -6 5 -6 q3 0 4 3 q1 -3 4 -3 q5 0 5 6"
+        style={{ opacity: "var(--icoon-detail, 0.6)" }}
+      ></path>
       {children}
     </svg>
   );

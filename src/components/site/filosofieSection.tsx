@@ -1,6 +1,7 @@
 import storyImg from "@/assets/story-craft.jpg";
 
 const GOUD = "var(--goud, oklch(0.8 0.105 85))";
+const LIJN = "var(--lijn, oklch(0.8 0.105 85))";
 
 export function FilosofieSection() {
   return (
@@ -58,7 +59,7 @@ export function FilosofieSection() {
               animation: "wbFloatC 7s ease-in-out infinite",
             }}
           >
-            <svg width="60" height="60" viewBox="0 0 24 24" fill={GOUD} opacity="0.9">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill={LIJN} opacity="0.9">
               <path d="M12 2 l2.2 7.8 L22 12 l-7.8 2.2 L12 22 l-2.2 -7.8 L2 12 l7.8 -2.2 Z"></path>
             </svg>
           </div>
@@ -136,7 +137,7 @@ export function FilosofieSection() {
             style={{ marginTop: "36px", display: "flex", alignItems: "center", gap: "14px" }}
           >
             <svg width="46" height="2" viewBox="0 0 46 2" aria-hidden="true">
-              <rect width="46" height="2" fill={GOUD}></rect>
+              <rect width="46" height="2" fill={LIJN}></rect>
             </svg>
             <span style={{ fontFamily: "'Yellowtail', cursive", fontSize: "26px", color: GOUD }}>
               Sinds 2014

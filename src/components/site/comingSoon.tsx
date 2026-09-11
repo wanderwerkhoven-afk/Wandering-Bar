@@ -1,4 +1,5 @@
 import heroImg from "@/assets/hero-bartender.jpg";
+import { LogoMark } from "./logoMark";
 import { PijlRechts, Ster } from "./siteIcons";
 import { PourScene } from "./pourSceneView";
 import { useBodyThema, useDocumentTitel } from "./siteMotion";
@@ -70,28 +71,37 @@ export function ComingSoon({ onEnter }: { onEnter: () => void }) {
             justifyContent: "space-between",
           }}
         >
-          <div style={{ display: "flex", alignItems: "baseline", gap: "8px" }}>
+          <div
+            className="wb-cs-logo"
+            style={{ display: "flex", alignItems: "center", gap: "12px", minWidth: 0 }}
+          >
+            <LogoMark hoogte={38} ink="oklch(0.95 0.02 85)" goud={GOUD} />
             <span
-              style={{
-                fontFamily: "'Grandstander', sans-serif",
-                fontWeight: 900,
-                fontSize: "24px",
-                textTransform: "uppercase",
-                color: "oklch(0.95 0.02 85)",
-              }}
+              className="wb-cs-logo-woord"
+              style={{ display: "flex", alignItems: "baseline", gap: "8px" }}
             >
-              Wandering
-            </span>
-            <span
-              style={{
-                fontFamily: "'Yellowtail', cursive",
-                fontSize: "29px",
-                color: GOUD,
-                transform: "rotate(-4deg)",
-                display: "inline-block",
-              }}
-            >
-              Bar
+              <span
+                style={{
+                  fontFamily: "'Grandstander', sans-serif",
+                  fontWeight: 900,
+                  fontSize: "24px",
+                  textTransform: "uppercase",
+                  color: "oklch(0.95 0.02 85)",
+                }}
+              >
+                Wandering
+              </span>
+              <span
+                style={{
+                  fontFamily: "'Yellowtail', cursive",
+                  fontSize: "29px",
+                  color: GOUD,
+                  transform: "rotate(-4deg)",
+                  display: "inline-block",
+                }}
+              >
+                Bar
+              </span>
             </span>
           </div>
           <div
@@ -120,7 +130,10 @@ export function ComingSoon({ onEnter }: { onEnter: () => void }) {
                 animation: "wbPulse 2.4s ease-out infinite",
               }}
             ></span>
-            Binnenkort online
+            <span className="wb-cs-badge-lang">Binnenkort online</span>
+            <span className="wb-cs-badge-kort" aria-hidden="true">
+              Binnenkort
+            </span>
           </div>
         </div>
       </header>

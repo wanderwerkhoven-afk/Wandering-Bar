@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import type { CSSProperties } from "react";
+import { LogoMark } from "./logoMark";
 import { useThema } from "./themeContext";
 import { MaanIcon, ZonIcon } from "./siteIcons";
 
@@ -90,29 +91,39 @@ function ThemaKnop() {
 
 function Logo() {
   return (
-    <a href="#" style={{ display: "flex", alignItems: "baseline", gap: "8px" }}>
+    <a
+      href="#"
+      className="wb-logo-header"
+      style={{ display: "flex", alignItems: "center", gap: "12px" }}
+    >
+      <LogoMark hoogte={40} />
       <span
-        style={{
-          fontFamily: "'Grandstander', sans-serif",
-          fontWeight: 900,
-          fontSize: "25px",
-          letterSpacing: "0.01em",
-          textTransform: "uppercase",
-          color: "var(--ink, oklch(0.95 0.02 85))",
-        }}
+        className="wb-logo-header-woord"
+        style={{ display: "flex", alignItems: "baseline", gap: "8px" }}
       >
-        Wandering
-      </span>
-      <span
-        style={{
-          fontFamily: "'Yellowtail', cursive",
-          fontSize: "30px",
-          color: "var(--goud, oklch(0.8 0.105 85))",
-          transform: "rotate(-4deg)",
-          display: "inline-block",
-        }}
-      >
-        Bar
+        <span
+          style={{
+            fontFamily: "'Grandstander', sans-serif",
+            fontWeight: 900,
+            fontSize: "25px",
+            letterSpacing: "0.01em",
+            textTransform: "uppercase",
+            color: "var(--ink, oklch(0.95 0.02 85))",
+          }}
+        >
+          Wandering
+        </span>
+        <span
+          style={{
+            fontFamily: "'Yellowtail', cursive",
+            fontSize: "30px",
+            color: "var(--goud, oklch(0.8 0.105 85))",
+            transform: "rotate(-4deg)",
+            display: "inline-block",
+          }}
+        >
+          Bar
+        </span>
       </span>
     </a>
   );

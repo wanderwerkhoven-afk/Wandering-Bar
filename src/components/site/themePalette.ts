@@ -20,15 +20,20 @@ const CHAMPAGNE_DONKER = [
 
 /** Champagne in lichte weergave. */
 const CHAMPAGNE_LICHT = [
-  "oklch(0.56 0.115 78)",
-  "oklch(0.56 0.115 78 / 0.5)",
-  "oklch(0.56 0.115 78 / 0.16)",
+  "oklch(0.52 0.115 76)",
+  "oklch(0.52 0.115 76 / 0.5)",
+  "oklch(0.52 0.115 76 / 0.18)",
 ] as const;
 
 const PALET_LICHT: VarMap = {
   bg: "oklch(0.965 0.018 85)",
   hdr: "oklch(0.97 0.015 85 / 0.85)",
   ink: "oklch(0.25 0.03 50)",
+  lijn: "oklch(0.47 0.12 72)",
+  "lijn-zacht": "oklch(0.47 0.12 72 / 0.72)",
+  "lijn-vlak": "oklch(0.47 0.12 72 / 0.16)",
+  "rand-deco": "oklch(0.47 0.12 72 / 0.45)",
+  "icoon-detail": "0.8",
   tekst: "oklch(0.28 0.03 50)",
   tx85: "oklch(0.25 0.03 50 / 0.88)",
   tx80: "oklch(0.25 0.03 50 / 0.8)",
@@ -60,6 +65,11 @@ const PALET_DONKER: VarMap = {
   bg: "oklch(0.15 0.018 50)",
   hdr: "oklch(0.15 0.018 50 / 0.82)",
   ink: "oklch(0.95 0.02 85)",
+  lijn: "oklch(0.8 0.105 85)",
+  "lijn-zacht": "oklch(0.8 0.105 85 / 0.5)",
+  "lijn-vlak": "oklch(0.8 0.105 85 / 0.14)",
+  "rand-deco": "oklch(0.8 0.105 85 / 0.35)",
+  "icoon-detail": "0.6",
   tekst: "oklch(0.93 0.02 85)",
   tx85: "oklch(0.93 0.02 85 / 0.85)",
   tx80: "oklch(0.93 0.02 85 / 0.8)",

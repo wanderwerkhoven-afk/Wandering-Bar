@@ -96,7 +96,7 @@ export function ScrollGlass() {
         height="60"
         viewBox="0 0 64 84"
         fill="none"
-        stroke="var(--goud, oklch(0.8 0.105 85))"
+        stroke="var(--lijn, oklch(0.8 0.105 85))"
         strokeWidth="2.5"
         strokeLinecap="round"
         aria-hidden="true"
