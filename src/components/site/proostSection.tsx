@@ -147,7 +147,8 @@ export function ProostSection() {
               maxWidth: "520px",
             }}
           >
-            Vertel ons over je gelegenheid en we ontwerpen samen de perfecte beleving.
+            Vertel ons wat je te vieren hebt. Wij denken mee over de drankjes, de bar en de
+            persoonlijke service die jouw gelegenheid compleet maken.
           </p>
           <a
             data-reveal="240"
