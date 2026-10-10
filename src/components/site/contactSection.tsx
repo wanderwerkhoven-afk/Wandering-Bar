@@ -114,8 +114,9 @@ export function ContactSection() {
               maxWidth: "420px",
             }}
           >
-            Vertel ons over je gelegenheid, datum en wensen. We reageren binnen 24 uur met een
-            voorstel op maat.
+            Een bruiloft, bedrijfsborrel of feest in gedachten? Vertel ons waar je iets te vieren
+            hebt, wanneer het plaatsvindt en wat je voor ogen hebt. We denken persoonlijk
+            met je mee over een barervaring die bij jouw gelegenheid past.
           </p>
           <div
             data-reveal="240"
