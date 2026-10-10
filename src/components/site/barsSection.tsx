@@ -32,7 +32,7 @@ const diensten: Dienst[] = [
     titel: "Cocktail workshops",
     badge: "Interactief",
     tekst:
-      "Een interactieve en sfeervolle workshop waarin jouw gasten zelf leren shaken, proeven en garneren onder begeleiding van professionele bartenders. Perfect voor teamuitjes, verjaardagen en vrijgezellenfeesten.",
+      "Samen shaken, proeven en ontdekken. Tijdens onze cocktailworkshops maken je gasten zelf bijzondere cocktails en leren ze de verhalen, smaken en technieken erachter kennen. Een gezellige en interactieve ervaring voor teamuitjes, verjaardagen en vrijgezellenfeesten.",
     img: workshopImg,
     alt: "Cocktail workshops",
     icoon: <ShakerIcon width="26" height="34" stroke={ACCENT} />,
@@ -42,7 +42,7 @@ const diensten: Dienst[] = [
     titel: "Cocktail catering",
     badge: "Signature",
     tekst:
-      "Van stijlvolle signature cocktails tot complete mobiele cocktailbars: wij verzorgen een unieke cocktailervaring op locatie, volledig afgestemd op jouw event en gasten.",
+      "Een cocktailbar die helemaal bij jouw gelegenheid past. Wij komen naar je toe met een stijlvolle baropstelling, vakkundige bartenders en een zorgvuldig samengesteld cocktailmenu. Van de eerste ontvangst tot het laatste glas draait alles om smaak, sfeer en gastvrijheid.",
     img: cateringImg,
     alt: "Cocktail catering",
     icoon: (
@@ -56,7 +56,7 @@ const diensten: Dienst[] = [
     titel: "Luxe wijnbar",
     badge: "Geselecteerd",
     tekst:
-      "Een sfeervolle mobiele wijnbar met zorgvuldig geselecteerde wijnen, stijlvolle presentatie en persoonlijke service voor een ontspannen en luxe sfeer.",
+      "Een goed glas wijn maakt een mooi moment nog bijzonderder. Met onze mobiele wijnbar brengen we zorgvuldig geselecteerde wijnen, passende glazen en persoonlijke service naar jouw feest, receptie of bruiloft.",
     img: wineImg,
     alt: "Luxe wijnbar",
     icoon: <WijnGlasIcon width="24" height="34" stroke={ACCENT} />,
@@ -66,7 +66,7 @@ const diensten: Dienst[] = [
     titel: "Speciaalbier bar",
     badge: "Van de tap",
     tekst:
-      "Geniet van lichte hazy IPA's tot zware tripels. Een bar waar je de hele avond verschillende bieren kunt proeven, inclusief glaswerk, service en sfeervolle aankleding.",
+      "Van frisse IPA's tot karaktervolle tripels: onze speciaalbierbar nodigt gasten uit om nieuwe favorieten te ontdekken. We verzorgen een sfeervolle bar met een passende bierselectie, glaswerk en gastvrije bediening.",
     img: beerImg,
     alt: "Speciaalbier bar",
     icoon: <BierIcon width="30" height="34" stroke={ACCENT} />,
@@ -168,8 +168,9 @@ export function BarsSection() {
               color: "oklch(0.24 0.03 50 / 0.65)",
             }}
           >
-            Leer samen shaken tijdens een interactieve workshop of geniet van een stijlvolle
-            cocktail-, wijn- of speciaalbierbar, volledig verzorgd op locatie.
+            Of je nu een cocktailworkshop organiseert of een mobiele cocktail-, wijn- of speciaalbierbar
+            zoekt: we denken graag mee over de invulling. Een passend menu, stijlvolle
+            presentatie en persoonlijke service vormen samen een zorgeloze barervaring.
           </p>
         </div>
 
