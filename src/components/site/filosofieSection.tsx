@@ -122,14 +122,15 @@ export function FilosofieSection() {
             }}
           >
             <p style={{ margin: 0 }}>
-              Bij Wandering Bar draait alles om beleving. Van intieme tuinfeesten en stijlvolle
-              bruiloften tot bruisende bedrijfsborrels: wij brengen een complete barervaring naar
-              jouw locatie.
+              Een geslaagd feest zit in de details. Een warm welkom, een verrassende cocktail en
+              een gesprek dat spontaan ontstaat aan de bar. Precies die momenten maken een
+              gelegenheid bijzonder.
             </p>
             <p style={{ margin: 0 }}>
-              Met ambachtelijke cocktails, professionele bartenders en een warme uitstraling creëren
-              we een sfeer waarin gasten samenkomen, ontspannen en genieten. Altijd stijlvol,
-              persoonlijk en volledig verzorgd.
+              Daarom brengen we meer dan alleen drankjes naar jouw locatie. We denken met je mee
+              over de sfeer, stemmen onze bar af op jouw gasten en verzorgen de service met
+              aandacht. Zodat jij niet hoeft te organiseren achter de schermen, maar volop
+              kunt genieten met je gasten.
             </p>
           </div>
           <div
