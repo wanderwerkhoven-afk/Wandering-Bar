@@ -185,8 +185,9 @@ export function HeroSection({ heroRef }: { heroRef: RefObject<HTMLElement | null
               color: "var(--tx72, oklch(0.93 0.02 85 / 0.72))",
             }}
           >
-            Cocktail catering, workshops en luxe mobiele bars voor elk event, van intieme borrels
-            tot grootse bruiloften en bedrijfsfeesten. Wij komen naar jou, shaker in de hand.
+            Van een intieme bruiloft tot een bruisend bedrijfsfeest: wij brengen een stijlvolle bar,
+            zorgvuldig bereide drankjes en persoonlijke gastvrijheid naar jouw locatie. Jij geniet
+            van het moment, wij zorgen voor de barervaring.
           </p>
           <div
             data-hero-fade
