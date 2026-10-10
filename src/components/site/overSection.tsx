@@ -95,18 +95,18 @@ export function OverSection() {
             }}
           >
             <p style={{ margin: 0 }}>
-              Wat begon als een passie voor cocktails en gastvrijheid groeide uit tot een team van
-              professionele bartenders en hospitalityliefhebbers met één doel: bijzondere momenten
-              creëren die mensen samenbrengen.
+              Wandering Bar begon met nieuwsgierigheid naar één cocktail en groeide vanuit
+              liefde voor smaak, verhalen en gastvrijheid. Diezelfde persoonlijke aandacht
+              vormt vandaag nog steeds het uitgangspunt van alles wat we doen.
             </p>
             <p style={{ margin: 0 }}>
-              Van stijlvolle cocktail catering en interactieve workshops tot sfeervolle wijnbars en
-              speciaalbierbars, wij brengen de warme uitstraling van een luxe barervaring naar
-              iedere locatie in Nederland.
+              Van cocktailworkshops tot mobiele cocktail-, wijn- en speciaalbierbars: we brengen
+              onze barconcepten naar de plek waar jouw verhaal zich afspeelt. Met aandacht
+              voor de gasten, de gelegenheid en de kleinste details.
             </p>
             <p style={{ margin: 0 }}>
-              Geen standaard concepten, maar een barervaring die volledig aansluit op de sfeer,
-              gasten en uitstraling van jouw event.
+              Want uiteindelijk gaat het niet alleen om wat er in het glas zit, maar om hoe
+              mensen zich voelen. Welkom, ontspannen en samen onderdeel van iets bijzonders.
             </p>
           </div>
           <div
